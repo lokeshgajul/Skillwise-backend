@@ -69,10 +69,12 @@ export const signin = async (req, res) => {
     );
 
     const userResponse = {
-      _id: user._id,
+      id: user._id,
       username: user.username,
       email: user.email,
     };
+    console.log("token", token, "response ", userResponse);
+
     return res.status(200).json({ token, user: userResponse });
   } catch (error) {
     res.status(400).json({ message: "Error Occurred ", error });

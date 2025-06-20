@@ -1,6 +1,14 @@
 import mongoose from "mongoose";
 
 const roadmapSchema = new mongoose.Schema({
+  userId: {
+    type: String,
+    required: true,
+  },
+  userName: {
+    type: String,
+    required: true,
+  },
   goal: {
     type: String,
     required: true,

@@ -7,6 +7,7 @@ import crypto from "crypto";
 import { verifyToken } from "./middleware/authMiddleware.js";
 import { generateRoadmap } from "./routes/generateRoadmap.js";
 import { youtubeSearch } from "./routes/youtube.js";
+import { getRoadmapById, getRoadmaps } from "./Controller/RoadmapController.js";
 
 dotenv.config();
 connectDb();
@@ -23,15 +24,16 @@ app.post("/signup", signup);
 
 app.post("/signin", signin);
 
-app.post("/generate-roadmap", generateRoadmap);
+app.post("/getRoadmapById", getRoadmapById);
+
+app.post("/generate-roadmap", verifyToken, generateRoadmap);
+
+app.get("/getRoadmaps", verifyToken, getRoadmaps);
 
 app.get("/youtube/search", youtubeSearch);
 
 app.get("/verify-token", verifyToken, (req, res) => {
-  res.json({
-    message: `Hello, ${req.user.username}! You have accessed a verified user route.`,
-    user: req.user,
-  });
+  res.status(200).json({ valid: true, user: req.user });
 });
 
 app.listen(3000, () => {

@@ -1,5 +1,4 @@
 import express from "express";
-import { signin, signup } from "../controllers/authController.js";
 import {
   generateRoadmap,
   getRoadmapById,

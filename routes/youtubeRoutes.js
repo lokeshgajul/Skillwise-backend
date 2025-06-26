@@ -1,5 +1,5 @@
 import express from "express";
-import { youtubeSearch } from "../Controller/YoutubeController.js";
+import { youtubeSearch } from "../controllers/YoutubeController.js";
 
 const router = express.Router();
 

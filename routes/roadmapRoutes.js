@@ -1,10 +1,10 @@
 import express from "express";
-import { signin, signup } from "../Controller/authController.js";
+import { signin, signup } from "../controllers/authController.js";
 import {
   generateRoadmap,
   getRoadmapById,
   getRoadmaps,
-} from "../Controller/roadmapController.js";
+} from "../controllers/roadmapController.js";
 import { verifyToken } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
